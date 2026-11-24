@@ -21,7 +21,11 @@ def patch(b):
         b[st:st+room]=ko+b'\0'*(room-len(ko)); n+=1
     print('boot strings',n,'/',len(T)); return bytes(b)
 def build(W):
-    b=patch(open(W('work','ext','PSP_GAME','SYSDIR','BOOT.BIN'),'rb').read())
+    b=bytearray(patch(open(W('work','ext','PSP_GAME','SYSDIR','BOOT.BIN'),'rb').read()))
+    # OSK (nickname input) description, UTF-16LE, 16 slots incl. terminator
+    o=0xee8cc; assert b[o:o+4]==bytes.fromhex('00672759')
+    k='최대 ８글자까지 입력 가능'.encode('utf-16-le')+bytes(2); assert len(k)<=32
+    b[o:o+32]=k+bytes(32-len(k)); b=bytes(b)
     sf=bytearray(open(W('work','ext','PSP_GAME','PARAM.SFO'),'rb').read())
     kt,dt,n=struct.unpack_from('<III',sf,8)
     for i in range(n):

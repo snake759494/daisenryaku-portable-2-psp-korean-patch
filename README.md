@@ -6,8 +6,8 @@ PSP 일본판 **大戦略ポータブル2 (대전략 포터블2, ULJM-05205, v1.
 
 1. 아래 해시와 일치하는 **원본 `.iso`** 를 준비합니다. (CSO·CHD 등으로 변환한 이미지에는 적용할 수 없습니다.)
    - PowerShell: `Get-FileHash -Algorithm MD5 -LiteralPath '.\Daisenryaku Portable 2 (Japan).iso'`
-2. xdeltaUI 같은 도구로 원본 `.iso` 에 `DaisenryakuPortable2_KO_v1.0.xdelta` 를 적용합니다. (Patch = xdelta, Source File = 원본 ISO, Output File = 새 파일명)
-   - 명령줄: `xdelta3 -d -s "Daisenryaku Portable 2 (Japan).iso" DaisenryakuPortable2_KO_v1.0.xdelta "Daisenryaku Portable 2 (Korean).iso"`
+2. xdeltaUI 같은 도구로 원본 `.iso` 에 `DaisenryakuPortable2_KO_v1.1.xdelta` 를 적용합니다. (Patch = xdelta, Source File = 원본 ISO, Output File = 새 파일명)
+   - 명령줄: `xdelta3 -d -s "Daisenryaku Portable 2 (Japan).iso" DaisenryakuPortable2_KO_v1.1.xdelta "Daisenryaku Portable 2 (Korean).iso"`
 3. 만들어진 ISO를 PPSSPP 또는 커스텀 펌웨어(PSP·PS Vita Adrenaline 등)에서 실행합니다.
 
 | 항목 | 값 |
@@ -15,9 +15,9 @@ PSP 일본판 **大戦略ポータブル2 (대전략 포터블2, ULJM-05205, v1.
 | 원본 ISO 크기 | 414,941,184 바이트 |
 | 원본 ISO MD5 | `8451acb4b5513679d494ce246d1e341d` |
 | 원본 ISO SHA-256 | `f4018d3f38c9a0d8df12f498f702fc91babe6b0993eda8a7028bb2f5a956de9c` |
-| xdelta SHA-256 | `3b38f524eb89cb4250caadef7c20cf5bb6f2458bc7b1dedf04d561dc09fcf19b` |
+| xdelta SHA-256 | `80d635876d3eb05e42db4ec61b825242ec2227359c29defc1430c22666f7d796` |
 | 결과 ISO 크기 | 415,105,024 바이트 |
-| 결과 ISO SHA-256 | `1cea900440527a954ba0f79d25718d04f73f8540db816bff9c500de42d3152ee` |
+| 결과 ISO SHA-256 | `5c562f9171d579e831a1a522cc3a890718f086458eb5ea4da94c094bb7ba40a7` |
 
 ## 주의
 - 암호화되지 않은 수정 실행 파일(BOOT.BIN)을 EBOOT.BIN 자리에도 넣었기 때문에 **PPSSPP·커스텀 펌웨어 전용**입니다. 정품 펌웨어에서는 부팅되지 않습니다.

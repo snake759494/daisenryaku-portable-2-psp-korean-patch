@@ -23,3 +23,8 @@
 
 ## ISO 재구성
 - `tools/isobuild.py` 가 원본 ISO를 복사한 뒤 바뀐 파일을 같은 자리(들어가지 않으면 이미지 끝)에 다시 써서 디렉터리 레코드를 고칩니다.
+
+## v1.1: GPU 덤프로 그림 글자 영역 측정
+- PPSSPP 디버거의 `gpu.record.dump` 로 화면 하나를 그리는 GE 명령을 저장하고(`tools/gedump.py`), through 모드 스프라이트의 UV에서 게임이 실제로 잘라 쓰는 텍스처 영역과 CLUT(팔레트)를 찾습니다(`tools/rects.py`, `tools/rectdb.py`).
+- 텍스처 한 장에 팔레트가 여러 개 있어, 잘못된 팔레트 기준으로 색을 고르면 글자 뒤에 박스가 생깁니다. 이제 영역마다 실제 팔레트로 배경·글자색·외곽선을 판별합니다(`tools/rectjob.py`).
+- 측정한 영역에 번역 문구를 배정하고(`tools/rassign.py`), 원본을 복원한 뒤 그 안에만 다시 그립니다(`tools/rapply.py`). 수동 지정은 `tools/imgspec3.py`.

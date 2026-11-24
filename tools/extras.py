@@ -9,7 +9,7 @@ def apply(W,c,lst):
     it={n:(o,s) for n,o,s in cont.parse(bytes(d))}
     for g,jobs in lst:
         o,s=it[g]; T=Tex(bytes(d[o:o+s]))
-        fit_jobs(T,expand_jobs(T,jobs))
+        import rapply; rapply.apply(T,c,g,jobs)
         nb=T.save_back(); assert len(nb)==s; d[o:o+s]=nb
     return bytes(d)
 def build(W):
